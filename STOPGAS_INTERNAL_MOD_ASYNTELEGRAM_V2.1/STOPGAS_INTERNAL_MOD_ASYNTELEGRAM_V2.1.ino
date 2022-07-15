@@ -19,7 +19,7 @@ InlineKeyboard myInlineKbd; // inline keyboard object helper
 bool isKeyboardActive;      // store if the reply keyboard is shown
 
 const char* token = "1766909127:AAG57w0lgshW4--NczJqEtGebSNWHMPBuI4";     // REPLACE myToken WITH YOUR TELEGRAM BOT TOKEN
-const char* channel = "@STOPGASMODULO1";
+const char* channel = "@Stopgas001";
 
 #define LIGHT_ON_CALLBACK  "lightON"  // callback data sent when "LIGHT ON" button is pressed
 #define LIGHT_OFF_CALLBACK "lightOFF" // callback data sent when "LIGHT OFF" button is pressed
@@ -28,7 +28,7 @@ const char* channel = "@STOPGASMODULO1";
 #define LED_RED   5
 #define LED_BLUE  0
 
-#define NRF24_CHANNEL 2
+#define NRF24_CHANNEL 1
 
 //-------- MQ2-SENSOR -----------
 #define   MQ_PIN                       (A0)
@@ -342,12 +342,6 @@ void loop() {
     sensor_value = analogRead(A0);
   }
   Serial.println(sensor_value);
-
-  //------ PORCENTAJE GAS ------
-  //Serial.print("LPG: "); 
-  //Serial.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG));
-  //Serial.println(" ppm");
-  //758119
   
   if(sensor_value > 450.0){
     alarma_gas = true;
