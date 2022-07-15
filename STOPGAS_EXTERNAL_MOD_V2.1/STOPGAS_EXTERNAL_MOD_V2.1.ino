@@ -9,7 +9,7 @@ RH_NRF24 nrf24(9, 10);
 
 #define VOLTAGE_PIN A0
 
-#define NRF24_CHANNEL 4
+#define NRF24_CHANNEL 1
 
 #define VALVE_PIN 7
 
