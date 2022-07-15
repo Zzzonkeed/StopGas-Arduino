@@ -18,8 +18,8 @@ InlineKeyboard myInlineKbd; // inline keyboard object helper
 
 bool isKeyboardActive;      // store if the reply keyboard is shown
 
-const char* token = "1766909127:AAG57w0lgshW4--NczJqEtGebSNWHMPBuI4";     // REPLACE myToken WITH YOUR TELEGRAM BOT TOKEN
-const char* channel = "@Stopgas001";
+const char* token = "5449995313:AAFVWNWHuBem0MWbQJR9F85KZyuAB4U8Wa4";     // REPLACE myToken WITH YOUR TELEGRAM BOT TOKEN
+const char* channel = "@Stopgas002";
 
 #define LIGHT_ON_CALLBACK  "lightON"  // callback data sent when "LIGHT ON" button is pressed
 #define LIGHT_OFF_CALLBACK "lightOFF" // callback data sent when "LIGHT OFF" button is pressed
@@ -28,7 +28,7 @@ const char* channel = "@Stopgas001";
 #define LED_RED   5
 #define LED_BLUE  0
 
-#define NRF24_CHANNEL 1
+#define NRF24_CHANNEL 2
 
 //-------- MQ2-SENSOR -----------
 #define   MQ_PIN                       (A0)
@@ -341,9 +341,9 @@ void loop() {
     ADCTime = millis();
     sensor_value = analogRead(A0);
   }
-  Serial.println(sensor_value);
+  //Serial.println(sensor_value);
   
-  if(sensor_value > 450.0){
+  if(sensor_value > 210.0){
     alarma_gas = true;
     if(twoTime < 1){
       String message ;    
@@ -376,7 +376,7 @@ void loop() {
    if(alarma_gas){
     static uint32_t beep_time = millis();
     tone(speakerPin, 1000);
-    if(millis() - beep_time > 3000){ //cambiar 3000 por 10000, 10 segundos
+    if(millis() - beep_time > 10000){ //cambiar 3000 por 10000, 10 segundos
       beep_time = millis();
       noTone(speakerPin);
       alarma_gas = false;
